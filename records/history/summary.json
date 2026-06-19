@@ -1,0 +1,32 @@
+{
+  "strategy": "弱转强次日涨停",
+  "backtest_period": "2016-06-22 ~ 2026-06-15",
+  "trading_days": 665,
+  "universe_size": 597,
+  "total_signals": 1330,
+  "avg_signals_per_day": 2.0,
+  "next_day_limit_up_count": 8,
+  "next_day_limit_up_rate_pct": 0.6,
+  "avg_return_t1_pct": 0.477,
+  "median_return_t1_pct": 0.028,
+  "win_rate_pct": 50.15,
+  "avg_return_when_limit_up_pct": 9.762,
+  "avg_return_when_not_limit_up_pct": 0.42,
+  "portfolio_cum_return_pct": 1850.64,
+  "max_drawdown_pct": -23.64,
+  "cum_return_first_3y_pct": 19.57,
+  "avg_return_t1_gross_pct": 0.776,
+  "avg_round_trip_cost_pct": 0.3,
+  "cost_assumption": "佣金万2.5双向 + 印花税万5(卖) + 滑点买0.10%/卖0.10%",
+  "params": {
+    "pct_min": 4.5,
+    "pct_max": 5.5,
+    "vol_ratio_min": 1.0,
+    "close_high_ratio_min": 1.0,
+    "top_n_per_day": 2,
+    "rank_by": "pct",
+    "max_candidates": null,
+    "min_candidates": 2,
+    "main_board_only": false
+  }
+}

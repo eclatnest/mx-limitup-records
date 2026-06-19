@@ -1,0 +1,28 @@
+{
+  "name": "弱转强策略-每日记录上GitHub",
+  "description": "交易日收盘后扫描弱转强候选（新浪K线，不用妙想），更新 records/ 并 push 到 GitHub 展示历史与实时记录。",
+  "workflow": {
+    "triggers": [
+      {
+        "cron": {
+          "cron": "30 16 * * 1-5"
+        }
+      }
+    ],
+    "actions": [],
+    "prompts": [
+      {
+        "prompt": "在本仓库根目录执行（禁止使用妙想 mx skills 或 MX_APIKEY）：\n\n1. 运行 `python automation/run_daily.py`\n2. 脚本会：扫描当日弱转强候选 → 写入 records/live/ → 更新 records/README.md → git commit & push\n3. 周日会自动附带 `--full-history` 刷新 records/history/ 全量回测\n4. 若命令失败，根据报错修复依赖或路径后重试一次\n5. 完成后用中文汇报：交易日、候选股票代码与名称、records/README.md 是否已更新、是否已成功 push\n\n数据源：limitup_backtest.py 新浪日K。只提交 records/ 目录。"
+      }
+    ],
+    "model": "",
+    "agentOptions": {
+      "skipInstall": false
+    },
+    "memoryEnabled": true,
+    "gitConfig": {
+      "repo": "eclatnest/mx-limitup-records",
+      "branch": "main"
+    }
+  }
+}
