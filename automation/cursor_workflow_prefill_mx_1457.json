@@ -1,0 +1,28 @@
+{
+  "name": "弱转强-妙想14:57买卖",
+  "description": "交易日14:57：卖出昨日持仓→首次清仓→按14:45候选全仓买入Top3（妙想模拟盘，日复利全仓）。",
+  "workflow": {
+    "triggers": [
+      {
+        "cron": {
+          "cron": "57 14 * * 1-5"
+        }
+      }
+    ],
+    "actions": [],
+    "prompts": [
+      {
+        "prompt": "在本仓库根目录执行妙想弱转强策略的**14:57交易**阶段（模拟盘 mx-moni）。\n\n## 前置\n- 环境变量 `MX_APIKEY` 必须已配置\n- 妙想Skills页面已创建并绑定模拟组合账户\n\n## 执行\n```bash\npython automation/run_mx_trade.py --phase execute\n```\n\n## 时间线（与回测一致）\n| 时刻 | 动作 |\n|------|------|\n| 14:45 | 由「弱转强-妙想14:45选股」Automation 完成选股 |\n| **14:57** | **本脚本**：先市价卖出昨日买入的持仓 |\n| **14:57** | **首次运行**：清空妙想虚拟仓全部旧持仓（清仓） |\n| **14:57** | 用账户**全部可用资金**等分市价买入 Top 3（日复利全仓） |\n| 次日14:57 | 卖出今日买入的持仓（下一轮 execute） |\n\n## 脚本行为\n1. 市价卖出 `trade_state.json` 中 pending_sells（昨日仓位）\n2. 若 `initialized=false`：清仓全部持仓后设 true\n3. 读取今日 14:45 候选；若无则现场重新选股\n4. 可用资金 ÷ Top N，市价买入（100股整数倍）\n5. 记录 pending_sells 供次日卖出\n6. 更新 `records/live/equity_daily.csv`（账户总资产=日复利权益）\n7. git commit & push records/\n\n## 失败处理\n- 非交易时段会失败，汇报原因\n- API 失败重试一次\n- 完成后中文汇报：卖出/买入明细、账户总资产、待次日卖出列表\n\n参数文件：`records/live/strategy_config.json`"
+      }
+    ],
+    "model": "",
+    "agentOptions": {
+      "skipInstall": false
+    },
+    "memoryEnabled": true,
+    "gitConfig": {
+      "repo": "eclatnest/mx-limitup-records",
+      "branch": "main"
+    }
+  }
+}
