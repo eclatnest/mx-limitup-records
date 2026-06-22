@@ -112,23 +112,17 @@ def build_readme() -> str:
 """
 
 
-def git_push() -> bool:
-    subprocess.run(["git", "add", "records/"], cwd=ROOT, check=False)
-    st = subprocess.run(["git", "status", "--porcelain"], cwd=ROOT, capture_output=True, text=True)
-    if not st.stdout.strip():
-        print("no changes to push")
-        return False
-    msg = f"records: mx dashboard {datetime.now().strftime('%Y-%m-%d %H:%M')}"
-    subprocess.run(["git", "commit", "-m", msg], cwd=ROOT, check=True)
-    subprocess.run(["git", "push", "-u", "origin", "HEAD"], cwd=ROOT, check=True)
-    return True
-
-
 def main() -> int:
     README_PATH.write_text(build_readme(), encoding="utf-8")
     print(f"updated {README_PATH}")
-    if git_push():
-        print("pushed to GitHub")
+    try:
+        from git_util import git_push_records
+
+        if git_push_records(f"records: mx dashboard {datetime.now().strftime('%Y-%m-%d %H:%M')}"):
+            print("pushed to GitHub")
+    except subprocess.CalledProcessError as e:
+        print(f"git push failed: {e}")
+        return 1
     return 0
 
 

@@ -102,8 +102,6 @@ def normalize_candidates(rows: list[dict]) -> list[dict]:
 def rank_and_pick(candidates: list[dict], cfg: dict) -> list[dict]:
     if cfg.get("min_c") and len(candidates) < cfg["min_c"]:
         return []
-    if cfg.get("max_c") and len(candidates) > cfg["max_c"]:
-        return []
     rank = cfg.get("rank", "pct")
     key = {"vol_ratio": "vol_ratio", "score": "pct", "pct": "pct"}.get(rank, "pct")
     if key == "score":
@@ -111,6 +109,9 @@ def rank_and_pick(candidates: list[dict], cfg: dict) -> list[dict]:
             c["score"] = c["pct"] * c.get("vol_ratio", 1)
         key = "score"
     candidates = sorted(candidates, key=lambda x: x.get(key, 0), reverse=True)
+    # 实盘：候选多于 max_c 时取排序后前 max_c 再取 top_n，不因数量多而整日跳过
+    if cfg.get("max_c") and len(candidates) > cfg["max_c"]:
+        candidates = candidates[: int(cfg["max_c"])]
     return candidates[: int(cfg.get("top_n", 3))]
 
 
@@ -172,6 +173,8 @@ def phase_select(state: dict, cfg: dict) -> dict:
         import pandas as pd
 
         pd.DataFrame(picks).to_csv(out, index=False, encoding="utf-8-sig")
+        latest = ROOT / "records" / "live" / "latest_candidates.csv"
+        pd.DataFrame(picks).to_csv(latest, index=False, encoding="utf-8-sig")
     write_daily_record(state, "select", {"query": query, "picks": picks, "raw_count": len(candidates)})
     print(f"[select] 候选 {len(candidates)} 只，入选 {len(picks)} 只")
     for p in picks:
@@ -280,10 +283,9 @@ def phase_execute(state: dict, cfg: dict) -> dict:
 
 
 def git_push_records() -> None:
-    publish = ROOT / "automation" / "run_mx_publish.py"
-    if publish.exists():
-        subprocess.run([sys.executable, str(publish)], cwd=ROOT, check=False)
-        return
+    from git_util import git_push_records as _push
+
+    _push(f"mx-trade: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
 
 
 def main() -> int:

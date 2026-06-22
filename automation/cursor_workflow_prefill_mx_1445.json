@@ -1,28 +1,15 @@
 {
   "name": "弱转强-妙想14:45选股",
-  "description": "交易日14:45用妙想mx-xuangu筛选弱转强候选，写入records/live供14:57下单使用。",
+  "description": "交易日14:45用妙想选股，写入records/live供14:57下单。",
   "workflow": {
-    "triggers": [
-      {
-        "cron": {
-          "cron": "45 14 * * 1-5"
-        }
-      }
-    ],
+    "triggers": [{"cron": {"cron": "45 14 * * 1-5"}}],
     "actions": [],
-    "prompts": [
-      {
-        "prompt": "在本仓库根目录执行妙想弱转强策略的**14:45选股**阶段。\n\n## 前置\n- 环境变量 `MX_APIKEY` 必须已配置（妙想Skills页面获取）\n- 交易时间：仅 A 股工作日 14:45 左右有效\n\n## 执行\n```bash\npython automation/run_mx_trade.py --phase select\n```\n\n## 脚本行为\n1. 读取 `records/live/strategy_config.json` 参数\n2. 调用妙想 mx-xuangu 选股（主板、涨幅4.5-5.3%、量比≥0.8、收高）\n3. 按涨幅排序取 Top 3 候选，写入 `records/live/YYYY-MM-DD/candidates_mx.csv`\n4. 更新 `records/live/trade_state.json` 的 last_select\n5. git commit & push records/\n\n## 失败处理\n- 若 API 失败，读报错重试一次\n- 完成后中文汇报：候选几只、代码列表、是否已 push\n\n注意：本 Automation **只选股不下单**；下单由 14:57 Automation 执行。"
-      }
-    ],
+    "prompts": [{
+      "prompt": "在仓库根目录执行妙想弱转强 **14:45选股**。\n\n## 必须步骤（按顺序）\n```bash\npip install -q -r automation/requirements.txt\npython automation/run_mx_trade.py --phase select\n```\n\n## 环境变量（Automation Settings 里配置）\n- `MX_APIKEY`：妙想 API Key（**必填**，否则脚本 exit 1）\n\n## 成功标准\n- 脚本 exit code = 0\n- 输出含 `[select] 候选 X 只，入选 Y 只` 及股票代码\n- `records/live/trade_state.json` 已更新\n- 已 git push records/\n\n## 失败时\n1. 若提示未配置 MX_APIKEY → 在 Automation 环境变量添加后重跑\n2. 若 pip 失败 → `pip install requests pandas` 后重试\n3. 若 API 失败 → 读报错重试一次\n4. 汇报 exit code 和最后 20 行输出"
+    }],
     "model": "",
-    "agentOptions": {
-      "skipInstall": false
-    },
+    "agentOptions": {"skipInstall": false},
     "memoryEnabled": true,
-    "gitConfig": {
-      "repo": "eclatnest/mx-limitup-records",
-      "branch": "main"
-    }
+    "gitConfig": {"repo": "eclatnest/mx-limitup-records", "branch": "main"}
   }
 }

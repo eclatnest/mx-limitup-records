@@ -1,28 +1,15 @@
 {
   "name": "弱转强-交易记录推GitHub",
-  "description": "交易日15:10更新records/README.md妙想模拟盘看板，并git push到GitHub展示实时交易记录。",
+  "description": "15:10更新records/README.md并push到GitHub。",
   "workflow": {
-    "triggers": [
-      {
-        "cron": {
-          "cron": "10 15 * * 1-5"
-        }
-      }
-    ],
+    "triggers": [{"cron": {"cron": "10 15 * * 1-5"}}],
     "actions": [],
-    "prompts": [
-      {
-        "prompt": "在本仓库根目录执行**GitHub 推送**任务，更新妙想模拟盘实时看板。\n\n## 执行\n```bash\npython automation/run_mx_publish.py\n```\n\n## 脚本行为\n1. 读取 `records/live/trade_state.json`、`equity_daily.csv`、`strategy_config.json`\n2. 重新生成 `records/README.md`（含账户权益、今日候选、待卖持仓）\n3. `git add records/` → commit → **push 到 origin main**\n4. 汇报 GitHub 仓库 URL 和本次更新摘要\n\n## 时间线位置\n- 14:45 选股 Automation 已完成\n- 14:57 买卖 Automation 已完成\n- **15:10 本 Automation**：把交易结果推到 GitHub 供查看\n\n## 失败处理\n- push 失败时检查 git 凭据后重试一次\n- 完成后明确汇报：**是否已成功 push 到 https://github.com/eclatnest/mx-limitup-records**"
-      }
-    ],
+    "prompts": [{
+      "prompt": "在仓库根目录执行 **GitHub 推送**。\n\n## 必须步骤\n```bash\npip install -q -r automation/requirements.txt\npython automation/run_mx_publish.py\n```\n\n## 说明\n- **不需要** MX_APIKEY\n- 更新 `records/README.md` 看板并 git push\n\n## 成功标准\n- exit code = 0\n- 输出 `pushed to GitHub` 或 `no changes to push`\n- 汇报 https://github.com/eclatnest/mx-limitup-records\n\n## 失败时\n- git push 失败 → 重试一次\n- 汇报 exit code 和错误信息"
+    }],
     "model": "",
-    "agentOptions": {
-      "skipInstall": false
-    },
+    "agentOptions": {"skipInstall": false},
     "memoryEnabled": true,
-    "gitConfig": {
-      "repo": "eclatnest/mx-limitup-records",
-      "branch": "main"
-    }
+    "gitConfig": {"repo": "eclatnest/mx-limitup-records", "branch": "main"}
   }
 }
