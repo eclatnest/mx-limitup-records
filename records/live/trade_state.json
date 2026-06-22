@@ -2,7 +2,29 @@
   "initialized": true,
   "equity_start": 1000000,
   "equity_last": 1070108.604,
-  "pending_sells": [],
+  "pending_sells": [
+    {
+      "code": "601168",
+      "name": "西部矿业",
+      "qty": 1700,
+      "buy_date": "2026-06-22",
+      "buy_price": 33.37
+    },
+    {
+      "code": "002716",
+      "name": "湖南白银",
+      "qty": 6100,
+      "buy_date": "2026-06-22",
+      "buy_price": 9.6
+    },
+    {
+      "code": "605378",
+      "name": "野马电池",
+      "qty": 3200,
+      "buy_date": "2026-06-22",
+      "buy_price": 18.1
+    }
+  ],
   "last_select": {
     "time": "2026-06-22T19:28:30",
     "query": "A股主板非ST 今日涨幅4.5%到5.3% 今日量比大于0.8 收盘价接近最高价 弱转强候选",
@@ -36,6 +58,82 @@
       "time": "2026-06-22T19:25:38.550993",
       "action": "clear_all",
       "detail": []
+    },
+    {
+      "time": "2026-06-22T14:58:09.582122",
+      "action": "execute",
+      "sells": [],
+      "buys": [
+        {
+          "code": "601168",
+          "qty": 1700,
+          "ok": true,
+          "raw": {
+            "code": "200",
+            "message": "成功",
+            "data": {
+              "result": {
+                "status": 0,
+                "interval": 200
+              },
+              "uid": "6201226199979240",
+              "accID": "261074400000020526",
+              "secCode": "601168",
+              "secMkt": 1,
+              "orderID": "261724500000082685",
+              "rc": 0,
+              "rmsg": ""
+            },
+            "traceId": null
+          }
+        },
+        {
+          "code": "002716",
+          "qty": 6100,
+          "ok": true,
+          "raw": {
+            "code": "200",
+            "message": "成功",
+            "data": {
+              "result": {
+                "status": 0,
+                "interval": 200
+              },
+              "uid": "6201226199979240",
+              "accID": "261074400000020526",
+              "secCode": "002716",
+              "secMkt": 0,
+              "orderID": "261724700000082687",
+              "rc": 0,
+              "rmsg": ""
+            },
+            "traceId": null
+          }
+        },
+        {
+          "code": "605378",
+          "qty": 3200,
+          "ok": true,
+          "raw": {
+            "code": "200",
+            "message": "成功",
+            "data": {
+              "result": {
+                "status": 0,
+                "interval": 200
+              },
+              "uid": "6201226199979240",
+              "accID": "261074400000020526",
+              "secCode": "605378",
+              "secMkt": 1,
+              "orderID": "261724800000082688",
+              "rc": 0,
+              "rmsg": ""
+            },
+            "traceId": null
+          }
+        }
+      ]
     }
   ]
 }

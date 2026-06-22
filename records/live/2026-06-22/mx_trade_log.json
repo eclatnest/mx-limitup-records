@@ -53,5 +53,107 @@
       }
     ],
     "raw_count": 9
+  },
+  {
+    "time": "2026-06-22T14:58:09",
+    "action": "execute",
+    "equity_last": 1070108.604,
+    "total_assets": 1070108.604,
+    "avail_balance": 4373.462,
+    "sells": [],
+    "buys": [
+      {
+        "code": "601168",
+        "qty": 1700,
+        "ok": true,
+        "raw": {
+          "code": "200",
+          "message": "成功",
+          "data": {
+            "result": {
+              "status": 0,
+              "interval": 200
+            },
+            "uid": "6201226199979240",
+            "accID": "261074400000020526",
+            "secCode": "601168",
+            "secMkt": 1,
+            "orderID": "261724500000082685",
+            "rc": 0,
+            "rmsg": ""
+          },
+          "traceId": null
+        }
+      },
+      {
+        "code": "002716",
+        "qty": 6100,
+        "ok": true,
+        "raw": {
+          "code": "200",
+          "message": "成功",
+          "data": {
+            "result": {
+              "status": 0,
+              "interval": 200
+            },
+            "uid": "6201226199979240",
+            "accID": "261074400000020526",
+            "secCode": "002716",
+            "secMkt": 0,
+            "orderID": "261724700000082687",
+            "rc": 0,
+            "rmsg": ""
+          },
+          "traceId": null
+        }
+      },
+      {
+        "code": "605378",
+        "qty": 3200,
+        "ok": true,
+        "raw": {
+          "code": "200",
+          "message": "成功",
+          "data": {
+            "result": {
+              "status": 0,
+              "interval": 200
+            },
+            "uid": "6201226199979240",
+            "accID": "261074400000020526",
+            "secCode": "605378",
+            "secMkt": 1,
+            "orderID": "261724800000082688",
+            "rc": 0,
+            "rmsg": ""
+          },
+          "traceId": null
+        }
+      }
+    ],
+    "picks": [
+      {
+        "code": "601168",
+        "name": "西部矿业",
+        "pct": 5.1,
+        "vol_ratio": 1.14,
+        "price": 33.37
+      },
+      {
+        "code": "002716",
+        "name": "湖南白银",
+        "pct": 5.03,
+        "vol_ratio": 1.06,
+        "price": 9.6
+      },
+      {
+        "code": "605378",
+        "name": "野马电池",
+        "pct": 4.93,
+        "vol_ratio": 2.46,
+        "price": 18.1
+      }
+    ]
   }
 ]
