@@ -1,8 +1,41 @@
 {
-  "initialized": false,
+  "initialized": true,
   "equity_start": 1000000,
-  "equity_last": 1000000,
+  "equity_last": 1070108.604,
   "pending_sells": [],
-  "last_select": null,
-  "trade_log": []
+  "last_select": {
+    "time": "2026-06-22T19:28:30",
+    "query": "A股主板非ST 今日涨幅4.5%到5.3% 今日量比大于0.8 收盘价接近最高价 弱转强候选",
+    "raw_count": 9,
+    "picks": [
+      {
+        "code": "601168",
+        "name": "西部矿业",
+        "pct": 5.1,
+        "vol_ratio": 1.14,
+        "price": 33.37
+      },
+      {
+        "code": "002716",
+        "name": "湖南白银",
+        "pct": 5.03,
+        "vol_ratio": 1.06,
+        "price": 9.6
+      },
+      {
+        "code": "605378",
+        "name": "野马电池",
+        "pct": 4.93,
+        "vol_ratio": 2.46,
+        "price": 18.1
+      }
+    ]
+  },
+  "trade_log": [
+    {
+      "time": "2026-06-22T19:25:38.550993",
+      "action": "clear_all",
+      "detail": []
+    }
+  ]
 }
