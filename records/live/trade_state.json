@@ -1,33 +1,55 @@
 {
   "initialized": true,
   "equity_start": 1000000,
-  "equity_last": 1070108.604,
-  "pending_sells": [],
+  "equity_last": 1025184.624,
+  "pending_sells": [
+    {
+      "code": "002986",
+      "name": "宇新股份",
+      "qty": 5900,
+      "buy_date": "2026-06-23",
+      "buy_price": 12.6
+    },
+    {
+      "code": "603201",
+      "name": "常润股份",
+      "qty": 3400,
+      "buy_date": "2026-06-23",
+      "buy_price": 21.35
+    },
+    {
+      "code": "600593",
+      "name": "大连圣亚",
+      "qty": 1800,
+      "buy_date": "2026-06-23",
+      "buy_price": 40.16
+    }
+  ],
   "last_select": {
-    "time": "2026-06-22T19:28:30",
+    "time": "2026-06-23T14:57:57",
     "query": "A股主板非ST 今日涨幅4.5%到5.3% 今日量比大于0.8 收盘价接近最高价 弱转强候选",
-    "raw_count": 9,
+    "raw_count": 3,
     "picks": [
       {
-        "code": "601168",
-        "name": "西部矿业",
-        "pct": 5.1,
-        "vol_ratio": 1.14,
-        "price": 33.37
+        "code": "002986",
+        "name": "宇新股份",
+        "pct": 5.18,
+        "vol_ratio": 2.07,
+        "price": 12.6
       },
       {
-        "code": "002716",
-        "name": "湖南白银",
-        "pct": 5.03,
-        "vol_ratio": 1.06,
-        "price": 9.6
+        "code": "603201",
+        "name": "常润股份",
+        "pct": 4.71,
+        "vol_ratio": 1.61,
+        "price": 21.35
       },
       {
-        "code": "605378",
-        "name": "野马电池",
-        "pct": 4.93,
-        "vol_ratio": 2.46,
-        "price": 18.1
+        "code": "600593",
+        "name": "大连圣亚",
+        "pct": 4.64,
+        "vol_ratio": 1.21,
+        "price": 40.16
       }
     ]
   },
@@ -36,6 +58,82 @@
       "time": "2026-06-22T19:25:38.550993",
       "action": "clear_all",
       "detail": []
+    },
+    {
+      "time": "2026-06-23T14:58:06.853723",
+      "action": "execute",
+      "sells": [],
+      "buys": [
+        {
+          "code": "002986",
+          "qty": 5900,
+          "ok": true,
+          "raw": {
+            "code": "200",
+            "message": "成功",
+            "data": {
+              "result": {
+                "status": 0,
+                "interval": 200
+              },
+              "uid": "6201226199979240",
+              "accID": "261074400000020526",
+              "secCode": "002986",
+              "secMkt": 0,
+              "orderID": "261734800000082679",
+              "rc": 0,
+              "rmsg": ""
+            },
+            "traceId": null
+          }
+        },
+        {
+          "code": "603201",
+          "qty": 3400,
+          "ok": true,
+          "raw": {
+            "code": "200",
+            "message": "成功",
+            "data": {
+              "result": {
+                "status": 0,
+                "interval": 200
+              },
+              "uid": "6201226199979240",
+              "accID": "261074400000020526",
+              "secCode": "603201",
+              "secMkt": 1,
+              "orderID": "261734800000082683",
+              "rc": 0,
+              "rmsg": ""
+            },
+            "traceId": null
+          }
+        },
+        {
+          "code": "600593",
+          "qty": 1800,
+          "ok": true,
+          "raw": {
+            "code": "200",
+            "message": "成功",
+            "data": {
+              "result": {
+                "status": 0,
+                "interval": 200
+              },
+              "uid": "6201226199979240",
+              "accID": "261074400000020526",
+              "secCode": "600593",
+              "secMkt": 1,
+              "orderID": "261734800000082684",
+              "rc": 0,
+              "rmsg": ""
+            },
+            "traceId": null
+          }
+        }
+      ]
     }
   ]
 }
