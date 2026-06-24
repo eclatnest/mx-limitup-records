@@ -172,6 +172,7 @@ def phase_select(state: dict, cfg: dict) -> dict:
     if picks:
         import pandas as pd
 
+        out.parent.mkdir(parents=True, exist_ok=True)
         pd.DataFrame(picks).to_csv(out, index=False, encoding="utf-8-sig")
         latest = ROOT / "records" / "live" / "latest_candidates.csv"
         pd.DataFrame(picks).to_csv(latest, index=False, encoding="utf-8-sig")
