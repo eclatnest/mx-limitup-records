@@ -1,33 +1,41 @@
 {
   "initialized": true,
   "equity_start": 1000000,
-  "equity_last": 1070108.604,
-  "pending_sells": [],
+  "equity_last": 1031397.949,
+  "pending_sells": [
+    {
+      "code": "002189",
+      "name": "中光学",
+      "qty": 100,
+      "buy_date": "2026-06-24",
+      "buy_price": 20.56
+    }
+  ],
   "last_select": {
-    "time": "2026-06-22T19:28:30",
+    "time": "2026-06-24T14:58:05",
     "query": "A股主板非ST 今日涨幅4.5%到5.3% 今日量比大于0.8 收盘价接近最高价 弱转强候选",
-    "raw_count": 9,
+    "raw_count": 6,
     "picks": [
       {
-        "code": "601168",
-        "name": "西部矿业",
-        "pct": 5.1,
-        "vol_ratio": 1.14,
-        "price": 33.37
+        "code": "000062",
+        "name": "深圳华强",
+        "pct": 5.18,
+        "vol_ratio": 1.36,
+        "price": 32.88
       },
       {
-        "code": "002716",
-        "name": "湖南白银",
-        "pct": 5.03,
-        "vol_ratio": 1.06,
-        "price": 9.6
+        "code": "002189",
+        "name": "中光学",
+        "pct": 5.06,
+        "vol_ratio": 1.61,
+        "price": 20.56
       },
       {
-        "code": "605378",
-        "name": "野马电池",
+        "code": "603005",
+        "name": "晶方科技",
         "pct": 4.93,
-        "vol_ratio": 2.46,
-        "price": 18.1
+        "vol_ratio": 1.65,
+        "price": 49.63
       }
     ]
   },
@@ -36,6 +44,36 @@
       "time": "2026-06-22T19:25:38.550993",
       "action": "clear_all",
       "detail": []
+    },
+    {
+      "time": "2026-06-24T14:58:09.373662",
+      "action": "execute",
+      "sells": [],
+      "buys": [
+        {
+          "code": "002189",
+          "qty": 100,
+          "ok": true,
+          "raw": {
+            "code": "200",
+            "message": "成功",
+            "data": {
+              "result": {
+                "status": 0,
+                "interval": 200
+              },
+              "uid": "6201226199979240",
+              "accID": "261074400000020526",
+              "secCode": "002189",
+              "secMkt": 0,
+              "orderID": "261744600000082688",
+              "rc": 0,
+              "rmsg": ""
+            },
+            "traceId": null
+          }
+        }
+      ]
     }
   ]
 }
