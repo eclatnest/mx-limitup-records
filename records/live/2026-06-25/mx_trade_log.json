@@ -1,0 +1,97 @@
+[
+  {
+    "time": "2026-06-25T14:58:38",
+    "action": "select",
+    "equity_last": 1070108.604,
+    "query": "A股主板非ST 今日涨幅4.5%到5.3% 今日量比大于0.8 收盘价接近最高价 弱转强候选",
+    "picks": [
+      {
+        "code": "603876",
+        "name": "鼎胜新材",
+        "pct": 5.2,
+        "vol_ratio": 1.2,
+        "price": 29.14
+      },
+      {
+        "code": "605369",
+        "name": "拱东医疗",
+        "pct": 4.73,
+        "vol_ratio": 2.38,
+        "price": 19.06
+      }
+    ],
+    "raw_count": 2
+  },
+  {
+    "time": "2026-06-25T14:58:41",
+    "action": "execute",
+    "equity_last": 1070108.604,
+    "total_assets": 1037686.529,
+    "avail_balance": 2021.581,
+    "sells": [],
+    "buys": [
+      {
+        "code": "603876",
+        "qty": 100,
+        "ok": true,
+        "raw": {
+          "code": "200",
+          "message": "成功",
+          "data": {
+            "result": {
+              "status": 0,
+              "interval": 200
+            },
+            "uid": "6201226199979240",
+            "accID": "261074400000020526",
+            "secCode": "603876",
+            "secMkt": 1,
+            "orderID": "261754600000082720",
+            "rc": 0,
+            "rmsg": ""
+          },
+          "traceId": null
+        }
+      },
+      {
+        "code": "605369",
+        "qty": 100,
+        "ok": true,
+        "raw": {
+          "code": "200",
+          "message": "成功",
+          "data": {
+            "result": {
+              "status": 0,
+              "interval": 200
+            },
+            "uid": "6201226199979240",
+            "accID": "261074400000020526",
+            "secCode": "605369",
+            "secMkt": 1,
+            "orderID": "261754500000082720",
+            "rc": 0,
+            "rmsg": ""
+          },
+          "traceId": null
+        }
+      }
+    ],
+    "picks": [
+      {
+        "code": "603876",
+        "name": "鼎胜新材",
+        "pct": 5.2,
+        "vol_ratio": 1.2,
+        "price": 29.14
+      },
+      {
+        "code": "605369",
+        "name": "拱东医疗",
+        "pct": 4.73,
+        "vol_ratio": 2.38,
+        "price": 19.06
+      }
+    ]
+  }
+]
