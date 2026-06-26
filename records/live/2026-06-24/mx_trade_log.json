@@ -1,12 +1,9 @@
-{
-  "initialized": true,
-  "equity_start": 1000000,
-  "equity_last": 1070108.604,
-  "pending_sells": [],
-  "last_select": {
-    "time": "2026-06-24T14:45:57",
+[
+  {
+    "time": "2026-06-24T14:45:58",
+    "action": "select",
+    "equity_last": 1070108.604,
     "query": "A股主板非ST 今日涨幅4.5%到5.3% 今日量比大于0.8 收盘价接近最高价 弱转强候选",
-    "raw_count": 6,
     "picks": [
       {
         "code": "000062",
@@ -29,13 +26,7 @@
         "vol_ratio": 1.65,
         "price": 49.63
       }
-    ]
-  },
-  "trade_log": [
-    {
-      "time": "2026-06-22T19:25:38.550993",
-      "action": "clear_all",
-      "detail": []
-    }
-  ]
-}
+    ],
+    "raw_count": 6
+  }
+]

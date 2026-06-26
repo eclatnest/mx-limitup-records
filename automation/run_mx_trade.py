@@ -168,7 +168,9 @@ def phase_select(state: dict, cfg: dict) -> dict:
         "picks": picks,
     }
     today = datetime.now().strftime("%Y-%m-%d")
-    out = ROOT / "records" / "live" / today / "candidates_mx.csv"
+    day_dir = ROOT / "records" / "live" / today
+    day_dir.mkdir(parents=True, exist_ok=True)
+    out = day_dir / "candidates_mx.csv"
     if picks:
         import pandas as pd
 
